@@ -5,7 +5,11 @@ background {
 }
 </style>
 <h1> Backpacking Project</h1>
-<p> Backpacking Project is a free resource for anyone wanting to go on a backpacking trip aand needing to find a campsite. </p>
+<p> Backpacking Project is a free resource for anyone wanting to go on a backpacking trip aand needing to find a campsite. If you have a compsite to share plese submit it in the form below</p>
+<form action= campsites@backpackingproject.com>
+<input type="text" placeholder= Description>
+<button type=submit< Submit</button>
+</form>
 </html>
 
 
