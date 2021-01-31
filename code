@@ -45,7 +45,7 @@ function showPosition(position) {
 </label><br>
 <input type="Text" placeholder= "Coordinates"><br>
 <input type="text" placeholder= Description><br>
-<input type="text" placeholder="How far away is water"
+<input type="text" placeholder="How far away is water"><br>
 <input type="file" placeholder= Add Image><br>
 <button type=submit> Submit</button>
 </form>
