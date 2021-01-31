@@ -1,0 +1,53 @@
+<html>
+<style>
+body {
+  background-color: #3492eb;
+}
+
+</style>
+<body></body>
+<h1> Backpacking Project</h1>
+<p> Backpacking Project is a free resource for anyone wanting to go on a backpacking trip and needing to find a campsite. The current campsites are in North Carolina because that is where I live. If you have a campsite to share plese submit it in the form below</p>
+<p>Click the button to get your coordinates for the form. The coordnates will be where your campsite will apper on the map.
+The file is where you would put you pics. Your campsite should apper in 24 hours. If you are out of service get the Coordinates and save them. Then when you are in service fill out the form and submit it.
+</p>
+
+<button onclick="getLocation()">Get the coordnates for the form</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+
+
+<form action= campsites@backpackingproject.com>
+<label for="Shelter"> 
+  <input id="Shelter" type="radio" name="shelter-campsite">Shelter 
+</label><br>
+<label for="Campsite"> 
+  <input id="Campsite" type="radio" name="shelter-campsite">Campsite 
+</label><br>
+<input type="Text" placeholder= "Coordinates"><br>
+<input type="text" placeholder= Description><br>
+<input type="text" placeholder="How far away is water"><br>
+<input type="file" placeholder= Add Image><br>
+<button type=submit> Submit</button>
+</form>
+<iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="640" height="480"></iframe><br><br><br>
+<P>Contact us at: Contact@backpackingproject.com</p>
+</html>
