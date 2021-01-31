@@ -13,7 +13,7 @@ body {
 The file is where you would put you pics. Your campsite should apper in 24 hours. If you are out of service get the Coordinates and save them. Then when you are in service fill out the form and submit it.
 </p>
 
-<button onclick="getLocation()">Get them</button>
+<button onclick="getLocation()">Get the coordnates for the form</button>
 
 <p id="demo"></p>
 
