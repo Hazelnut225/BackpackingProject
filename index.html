@@ -59,7 +59,7 @@ function showError(error) {
   }
 }
 </script>
-<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
 <label for="Shelter"> 
   <input id="shelter" type="radio" name="shelter-campsite">Shelter 
 </label><br>
@@ -85,7 +85,7 @@ $ = $shelter-campsite = $coordinates = $description = $howfarawayiswater = "";
 // define variables and set to empty values
 $name = $email = $gender = $comment = $website = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $shelter-campsite = test_input($_POST["shelter-campsite"]);
   $coordinates = test_input($_POST["coordinates"]);
   $description = test_input($_POST["description"]);
