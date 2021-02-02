@@ -4,16 +4,10 @@ $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswa
 $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["shelter"])) {
-    $shelterErr = "shelter is required";
+  if (empty($_POST["shelter-campsite"])) {
+    $shelter-campsiteErr = "shelter-campsite is required";
   } else {
-    $shelter = test_input($_POST["shelter"]);
-  }
-
-  if (empty($_POST["campsite"])) {
-    $campsiteErr = "campsite is required";
-  } else {
-    $email = test_input($_POST["email"]);
+    $shelter-campsite = test_input($_POST["shelter-campsite"]);
   }
 
   if (empty($_POST["coordinates"])) {
