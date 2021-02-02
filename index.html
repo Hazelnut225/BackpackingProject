@@ -82,7 +82,6 @@ function showError(error) {
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
 $name = $email = $gender = $comment = $website = "";
 
-<?php
 // define variables and set to empty values
 $name = $email = $gender = $comment = $website = "";
 
@@ -123,4 +122,5 @@ function test_input($data) {
 if($_POST["message"]) {
     mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: an@email.address");
 }
+?>
 </html>
