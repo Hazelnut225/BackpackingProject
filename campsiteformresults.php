@@ -23,4 +23,7 @@ $name = $email = $gender = $comment = $website = "";
     $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
   }
 }
+if($_POST["message"]) {
+    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: an@email.address");
+}
 ?>
