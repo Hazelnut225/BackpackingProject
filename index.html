@@ -80,10 +80,8 @@ function showError(error) {
   <?php
 // define variables and set to empty values
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
-$ = $shelter-campsite = $coordinates = $description = $howfarawayiswater = "";
 
-// define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $shelter-campsite = test_input($_POST["shelter-campsite"]);
