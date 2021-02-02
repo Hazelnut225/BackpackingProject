@@ -3,12 +3,7 @@
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
 $name = $email = $gender = $comment = $website = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["shelter-campsite"])) {
-    $shelter-campsiteErr = "shelter-campsite is required";
-  } else {
-    $shelter-campsite = test_input($_POST["shelter-campsite"]);
-  }
+
 
   if (empty($_POST["coordinates"])) {
     $coordinates = "";
