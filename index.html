@@ -59,7 +59,7 @@ function showError(error) {
   }
 }
 </script>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
+<form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
 <label for="Shelter"> 
   <input id="shelter" type="radio" name="shelter-campsite">Shelter 
 </label><br>
@@ -80,16 +80,16 @@ function showError(error) {
   <?php
 // define variables and set to empty values
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
-$name = $email = $gender = $comment = $website = "";
+$ = $shelter-campsite = $coordinates = $description = $howfarawayiswater = "";
 
 // define variables and set to empty values
 $name = $email = $gender = $comment = $website = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $email = test_input($_POST["email"]);
-  $website = test_input($_POST["website"]);
-  $comment = test_input($_POST["comment"]);
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  $shelter-campsite = test_input($_POST["shelter-campsite"]);
+  $coordinates = test_input($_POST["coordinates"]);
+  $description = test_input($_POST["description"]);
+  $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
   $gender = test_input($_POST["gender"]);
 }
 
