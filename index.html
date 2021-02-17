@@ -35,7 +35,6 @@ body {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-QDFEZMS523');
 </script></head>
 <body>
@@ -46,44 +45,38 @@ The current campsites are in North Carolina because that is where I live. If you
 The file is where you would put you pics. Your campsite should apper in 24 hours. If you are out of service get the Coordinates and save them. 
 Then when you are in service fill out the form and submit it.
 </p>
-
-<button onclick="getLocation()">Get the coordnates for the form</button><br>
-<p id = "status"></p>
-<a id = "map-link" target="_blank"></a>
+<button onclick="getLocation()">Get the coordnates for the form</button>
+<p id="demo"></p>
 <script>
-  function geoFindMe() {
-
-  const status = document.querySelector('#status');
-  const mapLink = document.querySelector('#map-link');
-
-  mapLink.href = '';
-  mapLink.textContent = '';
-
-  function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-
-    status.textContent = '';
-    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
   }
-
-  function error() {
-    status.textContent = 'Unable to retrieve your location';
-  }
-
-  if(!navigator.geolocation) {
-    status.textContent = 'Geolocation is not supported by your browser';
-  } else {
-    status.textContent = 'Locating…';
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-
 }
-
-document.querySelector('#find-me').addEventListener('click', geoFindMe);
-  </script>
-
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
 <label for="Shelter"> 
   <input id="shelter" type="radio" name="shelter-campsite">Shelter 
@@ -93,20 +86,16 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
 </label><br>
 <input type="Text" placeholder= "Coordinates" name="coordinates"><br>
   <span class="error"><?php echo $coordinatesErr;?></span>
-  <input type="text" placeholder="Title" name="title"><br>
+  <input type="text" placeholder="title" name="title"><br>
   <span class="error"><?php echo $titleErr;?></span>
   <textarea name="description" placeholder= Description rows="6" cols="45"></textarea><br>
   <span class="error"><?php echo $descriptionErr;?></span>
 <input name="howfarawayiswater" type="text" placeholder="How far away is water"><br>
-  <span class="error"><?php echo $howfarawayiswaterErr;?></span>
-<input type="file" placeholder= Add Image><br>
-<button type=submit> Submit</button>
-</form>
-<iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="640" height="480"></iframe><br><br><br>
-<P>Contact us at: ContactBackpackingProject@gmail.com</p>
+@@ -104,28 +106,31 @@ <h1> Backpacking Project</h1>
   </body>
   <?php
 // define variables and set to empty values
+$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr =$titleErr "";
 
 
@@ -127,23 +116,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = test_input($_POST["title"]);
 }
 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 
 
 
   if (empty($_POST["coordinates"])) {
+    $coordinates = "Coordinates are required. they are how we know where to put the campsite. ";
     $coordinates = "Coordinates are required. They are how we know where to put the campsite. ";
   } else {
     $coordinates = test_input($_POST["coordinates"]);
   }
-
-  if (empty($_POST["description"])) {
-    $description = "Description is required";
-  } else {
-    $description = test_input($_POST["description"]);
-  }
-
-  if (empty($_POST["howfarawayiswater"])) {
-    $howfarawayiswaterErr = "Please state how far away the nearest water is.";
+@@ -141,7 +146,16 @@ <h1> Backpacking Project</h1>
   } else {
     $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
   }
