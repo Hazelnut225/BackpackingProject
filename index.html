@@ -1,172 +1,89 @@
+<!DOCTYPE html>
 <html>
-<style>
-body {
-  background-color: #3492eb;
-}
-  iframe {
-  margin-left: 35%;
-  margin-right: 35%;
-    
-  }
-  form {
-  margin-left: 35%;
-    margin-right: 35%;
-    
-  }
-  h1 {
-  margin-left: 35%;
-    margin-right: 35%;
-    
-  }
-  button {
-  margin-left: 35%;
-    margin-right: 35%;
-    
-  }
-  p{
-  margin-left: 35%;
-    margin-right: 35%;
-   
-  }
-</style>
-  <head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDFEZMS523"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QDFEZMS523');
-</script></head>
-<body>
-<h1> Backpacking Project</h1>
-<p> Backpacking Project is a free resource for anyone wanting to go on a backpacking trip and needing to find a campsite. 
-The current campsites are in North Carolina because that is where I live. If you have a campsite to share plese submit it in the form below.</p>
-<p>Click the button to get your coordinates for the form. The coordnates will be where your campsite will apper on the map.
-The file is where you would put you pics. Your campsite should apper in 24 hours. If you are out of service get the Coordinates and save them. 
-Then when you are in service fill out the form and submit it.
-</p>
-<button onclick="getLocation()">Get the coordnates for the form</button>
-<p id="demo"></p>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
-function showError(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
-      break;
-  }
-}
-</script>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
-<label for="Shelter"> 
-  <input id="shelter" type="radio" name="shelter-campsite">Shelter 
-</label><br>
-<label for="Campsite"> 
-  <input id="Campsite" type="radio" name="shelter-campsite">Campsite 
-</label><br>
-<input type="Text" placeholder= "Coordinates" name="coordinates"><br>
-  <span class="error"><?php echo $coordinatesErr;?></span>
-  <input type="text" placeholder="title" name="title"><br>
-  <span class="error"><?php echo $titleErr;?></span>
-  <textarea name="description" placeholder= Description rows="6" cols="45"></textarea><br>
-  <span class="error"><?php echo $descriptionErr;?></span>
-<input name="howfarawayiswater" type="text" placeholder="How far away is water"><br>
-  <span class="error"><?php echo $howfarawayiswaterErr;?></span>
-<input type="file" placeholder= Add Image><br>
-<button type=submit> Submit</button>
-</form>
-<iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="640" height="480"></iframe><br><br><br>
-<P>Contact us at: ContactBackpackingProject@gmail.com</p>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.2.9/firebase-app.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.2.9/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.2.9/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.2.9/firebase-performance.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
   </body>
-  <?php
-// define variables and set to empty values
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr =$titleErr "";
-
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $shelter-campsite = test_input($_POST["shelter-campsite"]);
-  $coordinates = test_input($_POST["coordinates"]);
-  $description = test_input($_POST["description"]);
-  $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  $gender = test_input($_POST["gender"]);
-  $title = test_input($_POST["title"]);
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-
-
-  if (empty($_POST["coordinates"])) {
-    $coordinates = "Coordinates are required. they are how we know where to put the campsite. ";
-    $coordinates = "Coordinates are required. They are how we know where to put the campsite. ";
-  } else {
-    $coordinates = test_input($_POST["coordinates"]);
-  }
-  if (empty($_POST["description"])) {
-    $description = "Description is required";
-  } else {
-    $description = test_input($_POST["description"]);
-  }
-  if (empty($_POST["howfarawayiswater"])) {
-    $howfarawayiswaterErr = "Please state how far away the nearest water is.";
-  } else {
-    $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  }
-
-
-  if (empty($_POST["title"])) {
-    $coordinates = "Title is required ";
-  } else {
-    $title = test_input($_POST["title"]);
-  }
-}
-
-
-if($_POST["message"]) {
-    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: an@email.address");
-}
-?>
 </html>
