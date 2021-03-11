@@ -154,7 +154,15 @@ function test_input($data) {
   }
 }
 if($_POST["message"]) {
-    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: an@email.address");
+    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: BProjectcampsites@gmail.com");
+}
+
+if ($_POST['submit']) {
+    if (mail ($to, $subject, $body, $from)) { 
+       $success = "Message successfully sent";
+    } else {
+        $success = "Message Sending Failed, try again";
+    }
 }
 ?>
 </html>
