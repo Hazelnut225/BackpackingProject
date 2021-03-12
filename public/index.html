@@ -98,14 +98,14 @@ function showError(error) {
 <iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="640" height="480"></iframe><br><br><br>
 <P>Contact us at: ContactBackpackingProject@gmail.com</p>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.2.9/firebase-app.js"></script>
+<script src="/BackpackingProject/firebase/8.2.9/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
+<script src="/BackpackingProject/firebase/8.2.9/firebase-analytics.js"></script>
 
 <!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+<script src="/BackpackingProject/firebase/init.js"></script>
   </body>
   <?php
 // define variables and set to empty values
@@ -161,7 +161,7 @@ if ($_POST['submit']) {
     if (mail ($to, $subject, $body, $from)) { 
        $success = "Message successfully sent";
     } else {
-        $success = "Message Sending Failed, try again";
+        $success = "Error, Try again.";
     }
 }
 ?>
