@@ -153,7 +153,7 @@ function test_input($data) {
     $title = test_input($_POST["title"]);
   }
 }
-if($_POST["message"]) {
+if($_POST["description"]) {
     mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: BProjectcampsites@gmail.com");
 }
 if ($_POST['submit']) {
