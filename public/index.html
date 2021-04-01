@@ -109,7 +109,6 @@ function showError(error) {
   </body>
   <?php
 // define variables and set to empty values
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
 $shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr =$titleErr "";
 function test_input($data) {
   $data = trim($data);
@@ -122,7 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $coordinates = test_input($_POST["coordinates"]);
   $description = test_input($_POST["description"]);
   $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  $gender = test_input($_POST["gender"]);
   $title = test_input($_POST["title"]);
 }
 function test_input($data) {
@@ -154,7 +152,7 @@ function test_input($data) {
   }
 }
 if($_POST["description"]) {
-    mail("contactbackpackingproject@gmail.com.address", "New campsite", $_POST["description"], "From: contactbackpackingproject@gmail.com");
+    mail("contactbackpackingproject@gmail.com", "New campsite", $_POST["description"], "From: contactbackpackingproject@gmail.com");
 }
 if ($_POST['submit']) {
     if (mail ($to, $subject, $body, $from)) { 
