@@ -154,7 +154,7 @@ function test_input($data) {
   }
 }
 if($_POST["description"]) {
-    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: BProjectcampsites@gmail.com");
+    mail("contactbackpackingproject@gmail.com.address", "New campsite", $_POST["description"], "From: contactbackpackingproject@gmail.com");
 }
 if ($_POST['submit']) {
     if (mail ($to, $subject, $body, $from)) { 
