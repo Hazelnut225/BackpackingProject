@@ -109,7 +109,6 @@ function showError(error) {
   </body>
   <?php
 // define variables and set to empty values
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr =$titleErr "";
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
@@ -128,28 +127,6 @@ function test_input($data) {
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
-}
-  if (empty($_POST["coordinates"])) {
-    $coordinates = "Coordinates are required. they are how we know where to put the campsite. ";
-    $coordinates = "Coordinates are required. They are how we know where to put the campsite. ";
-  } else {
-    $coordinates = test_input($_POST["coordinates"]);
-  }
-  if (empty($_POST["description"])) {
-    $description = "Description is required";
-  } else {
-    $description = test_input($_POST["description"]);
-  }
-  if (empty($_POST["howfarawayiswater"])) {
-    $howfarawayiswaterErr = "Please state how far away the nearest water is.";
-  } else {
-    $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  }
-  if (empty($_POST["title"])) {
-    $coordinates = "Title is required ";
-  } else {
-    $title = test_input($_POST["title"]);
-  }
 }
 if($_POST["description"]) {
     mail("contactbackpackingproject@gmail.com", "New campsite", $_POST["description"], "From: contactbackpackingproject@gmail.com");
