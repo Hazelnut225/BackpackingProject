@@ -6,14 +6,18 @@
  $distancetowater = $_POST['howfarawayiswater'];
  $image = $_POST['file'];
 
-
-$email_from = 'contactbackpackingproject@gmail.com';
-
 	$email_subject = "New Campsite submission";
 
 	$email_body = "You have received a new campsite submisssion. The title is: $title.\n".
-                            "Here are the coordiantes: $coordinates". 
-                             "The description is: $description".
-                               "It is a: $shelter $campsite."
-                               "The distance to water is: $distancetowater".
-                               "The image is: $image".
+                            "Here are the coordiantes:n\ $coordinates". 
+                             "The description is:n\ $description".
+                               "It is a:n\ $shelterorcampsite."
+                               "The distance to water is:n\ $distancetowater".
+                               "The image is:n\ $image".;
+
+		$to = "contactbackpackingproject@gmail.com";
+		
+                $headers = "From: $email_from \r\n";
+
+                mail($to,$email_subject,$email_body,$headers);
+?>
