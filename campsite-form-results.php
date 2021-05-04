@@ -1,3 +1,19 @@
+<html>
+<style> 
+body {
+	background-color: #3492eb;
+	}
+		
+<style> 
+	
+
+
+
+
+
+
+
+
 <?php
  $title = $_POST['title'];
   $coordinates = $_POST['coordinates'];
