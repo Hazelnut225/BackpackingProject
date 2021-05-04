@@ -6,14 +6,14 @@ body {
 		
 <style> 
 	
+<p> Thank you for adding a Campsite to Backpacking project. you campsite should apper within 24 hours</p>
 
 
 
 
 
 
-
-
+<html>
 <?php
  $title = $_POST['title'];
   $coordinates = $_POST['coordinates'];
