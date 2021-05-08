@@ -8,7 +8,9 @@ body {
 	
 <p> Thank you for adding a Campsite to Backpacking project. you campsite should apper within 24 hours</p>
 
-
+<form action="https://backpacking-project.com">
+    <input type="submit" value="return to home" />
+</form>
 
 
 
