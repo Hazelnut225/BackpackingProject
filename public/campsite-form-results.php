@@ -15,7 +15,7 @@ body {
 
 
 
-<html>
+
 <?php
  $title = $_POST['title'];
   $coordinates = $_POST['coordinates'];
@@ -39,3 +39,4 @@ body {
 
                 mail($to,$email_subject,$email_body,$headers);
 ?>
+</html>
