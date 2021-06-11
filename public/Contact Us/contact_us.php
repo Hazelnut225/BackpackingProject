@@ -18,14 +18,14 @@ $email_subject = "New contact form submission";
 	$email_body = "You have received a new contact form submisssion. The name of the person is:
   $name\n"
                             
-                             "The description is:n\ $description".
-                               "It is a:n\ $shelterorcampsite."
-                               "The distance to water is:n\ $distancetowater".
-                               "The image is:n\ $image".;
+                             "The message is:n\ $message".
+                               
 
 		$to = "contactbackpackingproject@gmail.com";
 		
                 $headers = "From: $email_from \r\n";
+
+                $headers = "Reply-To: $email \r\n";
 
                 mail($to,$email_subject,$email_body,$headers);
 ?>
