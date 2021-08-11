@@ -1,8 +1,41 @@
 <html>
+  <style>
+    body {
+  background-color: #3492eb;
+}
+    .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+    .form {
+      margin: "auto";
+    }
+    
+    p {
+      margin: "auto";
+    }
+  </style>
+  <div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="contact.html">Contact</a>
+  <a href="aboutus.html">About</a>
+</div>
+  <body>
   <p> Please contact us if you have any concerns, fetaure requests or just feedback! We greatly appritiate your feedback!
     
     <form method="post" action="contact_us.php"> 
-      Name: <input type="text" name="name">
-E-mail: <input type="text" name="email">
-Message: <textarea name="comment" rows="6" cols="40"></textarea>
+      Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+Message: <textarea name="comment" rows="6" cols="40"></textarea><br>
+      <button type=submit> Submit</button>
   </form>
+  </body>
+</html>
