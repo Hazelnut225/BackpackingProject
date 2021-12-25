@@ -1,0 +1,30 @@
+#runtime: php74 # Replace with php74 to use PHP 7.4
+#application: backpacking-project
+#version: 1
+#api_version: 1
+
+#handlers:
+#- url: /.*
+  #script: campsite-form-results.php, contact_us.php
+
+runtime: php74
+
+handlers:
+- url: /index.html/
+  static_files: www/index.html
+  upload: www/index.html, 
+
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
+
+
+
+
+#handlers:
+# Serve a directory as a static resource.
+# Serve images as static resources.
+#- url: backpacking-project.com
+ # static_files: public/index.html
+ # upload: public/index.html
+

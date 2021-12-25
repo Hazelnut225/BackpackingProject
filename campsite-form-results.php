@@ -4,22 +4,24 @@ body {
 	background-color: #3492eb;
 	}
 		
-<style> 
+</style> 
 	
+<p> Thank you for adding a Campsite to Backpacking project. you campsite should apper within 24 hours</p>
 
-
-
+<form action="https://backpacking-project.com">
+    <input type="submit" value="return to home" />
+</form>
 
 
 
 
 
 <?php
- $title = $_POST['title'];
-  $coordinates = $_POST['coordinates'];
-  $description = $_POST['description']; 
- $shelterorcampsite = $_POST['shelter-campsite'];
- $distancetowater = $_POST['howfarawayiswater'];
+ $title = htmlspecialchars($_POST['title']);
+  $coordinates = htmlspecialchars($_POST['coordinates']);
+  $description = htmlspecialchars($_POST['description']); 
+ $shelterorcampsite = htmlspecialchars($_POST['shelter-campsite']);
+ $distancetowater = htmlspecialchars($_POST['howfarawayiswater']);
  $image = $_POST['file'];
 
 	$email_subject = "New Campsite submission";

@@ -1,22 +1,42 @@
-<html>
+<html>          
 <style>
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+h1 {
+ background: url(background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   background-color: #3492eb;
 }
-  iframe {
-  margin-left: 35%;
-  margin-right: 35%;
-    
+  .iframe {
+  margin: auto;
+    width: 50%;
+
   }
-  form {
-  margin-left: 35%;
-    margin-right: 35%;
+  .form {
+  margin: auto;
+  width: 50%;
     
   }
   h1 {
-  margin-left: 35%;
-    margin-right: 35%;
-    
+  margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;               
   }
   button {
   margin-left: 35%;
@@ -24,26 +44,36 @@ body {
     
   }
   p{
-  margin-left: 35%;
-    margin-right: 35%;
+  margin-left: 10%;
+    margin-right: 10%;
    
   }
 </style>
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="contact.html">Contact</a>
+  <a href="aboutus.html">About</a>
+</div>
   <head><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDFEZMS523"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4EWBP8V0V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-QDFEZMS523');
-</script></head>
+
+  gtag('config', 'G-L4EWBP8V0V');
+</script>
+  <script data-ad-client="ca-pub-5780333990879856" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<header1>
+<h1><br><br><br><br><br>
+<br><br><br>Backpacking Project<br><br><br><br><br><br><br><br><br><br><br></h1>
+</header1>
 <body>
-<h1> Backpacking Project</h1>
 <p> Backpacking Project is a free resource for anyone wanting to go on a backpacking trip and needing to find a campsite. 
 The current campsites are in North Carolina because that is where I live. If you have a campsite to share plese submit it in the form below.</p>
-<p>Click the button to get your coordinates for the form. The coordnates will be where your campsite will apper on the map.
-The file is where you would put you pics. Your campsite should apper in 24 hours. If you are out of service get the Coordinates and save them. 
-Then when you are in service fill out the form and submit it.
+<p>Click the button below to get your coordinates for the form. The file buttons is for submitting photos. Thank you for all your campsite submissions.
+Your campsite should apper in 24 hours.
 </p>
 <button onclick="getLocation()">Get the coordnates for the form</button>
 <p id="demo"></p>
@@ -77,84 +107,49 @@ function showError(error) {
   }
 }
 </script>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?">
+<div class="form">
+<form action = "https://backpacking-project.com/index.html" method="post">
 <label for="Shelter"> 
   <input id="shelter" type="radio" name="shelter-campsite">Shelter 
 </label><br>
 <label for="Campsite"> 
-  <input id="Campsite" type="radio" name="shelter-campsite">Campsite 
+  <input id="campsite" type="radio" name="shelter-campsite">Campsite 
 </label><br>
-<input type="Text" placeholder= "Coordinates" name="coordinates"><br>
-  <span class="error"><?php echo $coordinatesErr;?></span>
-  <input type="text" placeholder="title" name="title"><br>
-  <span class="error"><?php echo $titleErr;?></span>
-  <textarea name="description" placeholder= Description rows="6" cols="45"></textarea><br>
-  <span class="error"><?php echo $descriptionErr;?></span>
-<input name="howfarawayiswater" type="text" placeholder="How far away is water"><br>
-  <span class="error"><?php echo $howfarawayiswaterErr;?></span>
-<input type="file" placeholder= Add Image><br>
+<input type="Text" placeholder= "Coordinates" name="coordinates"><br><br>
+  <input type="text" placeholder="title" name="title"><br><br>
+  <textarea id="description" name="description" placeholder= Description rows="6" cols="45"></textarea><br><br>
+<input name="howfarawayiswater" type="text" placeholder="How far away is water"><br><br>
+<input name="image" type="file" placeholder= Add Image><br>
 <button type=submit> Submit</button>
 </form>
-<iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="640" height="480"></iframe><br><br><br>
+</div>
+<div class= "iframe">
+<iframe src="https://www.google.com/maps/d/embed?mid=1mq9sUsyBerogH-gvoe5Uh-uYk6oG2S_t" width="600" height="400"></iframe><br><br><br></div>
 <P>Contact us at: ContactBackpackingProject@gmail.com</p>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.2.9/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.2.9/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
   </body>
-  <?php
-// define variables and set to empty values
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr="";
-$shelterErr = $campsiteErr = $coordinatesErr = $descriptionErr = $howfarawayiswaterErr =$titleErr "";
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $shelter-campsite = test_input($_POST["shelter-campsite"]);
-  $coordinates = test_input($_POST["coordinates"]);
-  $description = test_input($_POST["description"]);
-  $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  $gender = test_input($_POST["gender"]);
-  $title = test_input($_POST["title"]);
-}
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-  if (empty($_POST["coordinates"])) {
-    $coordinates = "Coordinates are required. they are how we know where to put the campsite. ";
-    $coordinates = "Coordinates are required. They are how we know where to put the campsite. ";
-  } else {
-    $coordinates = test_input($_POST["coordinates"]);
-  }
-  if (empty($_POST["description"])) {
-    $description = "Description is required";
-  } else {
-    $description = test_input($_POST["description"]);
-  }
-  if (empty($_POST["howfarawayiswater"])) {
-    $howfarawayiswaterErr = "Please state how far away the nearest water is.";
-  } else {
-    $howfarawayiswater = test_input($_POST["howfarawayiswater"]);
-  }
-  if (empty($_POST["title"])) {
-    $coordinates = "Title is required ";
-  } else {
-    $title = test_input($_POST["title"]);
-  }
-}
-if($_POST["message"]) {
-    mail("contactbackpackingproject@gmail.com.address", "Form to email message", $_POST["message"], "From: an@email.address");
-}
-?>
+ 
 </html>
+
+# <?php
+ $title = htmlspecialchars($_POST['title']);
+  $coordinates = htmlspecialchars($_POST['coordinates']);
+  $description = htmlspecialchars($_POST['description']); 
+ $shelterorcampsite = htmlspecialchars($_POST['shelter-campsite']);
+ $distancetowater = htmlspecialchars($_POST['howfarawayiswater']);
+ $image = $_POST['file'];
+
+	$email_subject = "New Campsite submission";
+
+	$email_body = "You have received a new campsite submisssion. The title is: $title.\n".
+                            "Here are the coordiantes:n\ $coordinates". 
+                             "The description is:n\ $description".
+                               "It is a:n\ $shelterorcampsite."
+                               "The distance to water is:n\ $distancetowater".
+                               "The image is:n\ $image".;
+
+		$to = "contactbackpackingproject@gmail.com";
+		
+                $headers = "From: $email_from \r\n";
+
+                mail($to,$email_subject,$email_body,$headers);
+?>
